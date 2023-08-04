@@ -28,7 +28,8 @@ class DBStorage:
     orm_mapped_classes = {
         "City": City,
         "State": State,
-        "User": User
+        "User": User,
+        "Place": Place
     }
     __engine = None
     __session = None
