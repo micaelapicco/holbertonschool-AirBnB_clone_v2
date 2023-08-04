@@ -25,6 +25,10 @@ class DBStorage:
     valid_classes = {"Amenity": Amenity, "City": City,
                      "Place": Place, "Review": Review,
                      "State": State, "User": User}
+    orm_mapped_classes = {
+        "City": City,
+        "State": State
+    }
     __engine = None
     __session = None
 
@@ -54,13 +58,13 @@ class DBStorage:
         """
         obj = {}
         if cls:
-            cls = self.valid_classes[cls]
+            cls = self.orm_mapped_classes[cls]
             result = self.__session.query(cls).all()
             for item in result:
                 key = "{}.{}".format(item.__class__.__name__, item.id)
                 obj[key] = item
         else:
-            for cls in self.valid_classes.values():
+            for cls in self.orm_mapped_classes.values():
                 result = self.__session.query(cls).all()
                 for item in result:
                     key = "{}.{}".format(item.__class__.__name__, item.id)
