@@ -57,9 +57,8 @@ class DBStorage:
         objects depending of the class
         """
         obj = {}
-        if cls:
-            cls = self.orm_mapped_classes[cls]
-            result = self.__session.query(cls).all()
+        if cls is not None:
+            result = self.__session.query(cls)
             for item in result:
                 key = "{}.{}".format(item.__class__.__name__, item.id)
                 obj[key] = item
