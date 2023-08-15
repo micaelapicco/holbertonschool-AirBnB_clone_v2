@@ -1,5 +1,5 @@
 #!/urs/bin/python3
-"""Task 1:
+"""Task 2:
 Say hello and connect port
 """
 from flask import Flask
@@ -17,6 +17,13 @@ def hello_hbnb():
 def hbnb():
     """say hbnb"""
     return "HBNB"
+
+
+@app.route('/c/<text>', strict_slashes=False)
+def text(text):
+    """say c + text"""
+    correct_format = text.replace("_", " ")
+    return "C " + correct_format
 
 
 if __name__ == "__main__":
