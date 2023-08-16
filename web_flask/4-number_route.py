@@ -1,4 +1,4 @@
-#!/urs/bin/python3
+#!/usr/bin/python3
 """Task 4:
 Say hello and connect port
 """
