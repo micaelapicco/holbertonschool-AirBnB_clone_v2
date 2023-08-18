@@ -9,6 +9,7 @@ class FileStorage:
     __objects = {}
 
     """update all method"""
+
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
         if cls is None:
@@ -63,3 +64,7 @@ class FileStorage:
                 self.save()
         else:
             pass
+
+    def close(self):
+        """call method for deserializing the JSON file to objects"""
+        self.reload()
