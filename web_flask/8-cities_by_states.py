@@ -26,8 +26,8 @@ def display_states():
 @app.route('/cities_by_states', strict_slashes=False)
 def display_city():
     """Display cities"""
-    all_cities = storage.all(State).values()
-    return render_template('8-cities_by_states.html', all_cities=all_cities)
+    all_states = storage.all(State).values()
+    return render_template('8-cities_by_states.html', all_states=all_states)
 
 
 if __name__ == "__main__":
