@@ -7,7 +7,7 @@
         {% if state is none %}
         <h1>Not found!</h1>
         {% else %}
-        <H1>State: {{states.name}}</H1>
+        <H1>State: {{ states.name }}</H1>
         <h3>Cities:</h3>
         <UL>
             {% for city in states.cities|sort(attribute='name') %}
